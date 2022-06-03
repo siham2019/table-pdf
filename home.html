@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pdf table</title>
+</head>
+<body>
+     <!-- pdfmake files: -->
+  <script src='https://cdn.jsdelivr.net/npm/pdfmake@latest/build/pdfmake.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/pdfmake@latest/build/vfs_fonts.min.js'></script>
+  <!-- html-to-pdfmake file: -->
+  <script src="https://cdn.jsdelivr.net/npm/html-to-pdfmake/browser.js"></script>
+  <script>
+        var val = htmlToPdfmake(`
+    <table border="1" width="100%" cellspacing="0" cellpadding="3">
+        <thead>
+            <th  width="80%">Jan-21</th>
+            <th width="20%" rowspan="3" height="30%">Working Hours</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+
+                
+                <table border="1" width="100%" cellspacing="0" cellpadding="3">
+                    <thead>
+                        <th>
+                            Date
+                        </th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+              
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Day
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                2
+                            </td>                      
+                            <td>
+                                3
+                            </td>         
+                            <td>
+                                4
+                            </td>   
+                            <td>
+                                5
+                            </td>   
+                            <td>
+                                6
+                            </td>
+                            <td>
+                                7
+                            </td>
+                            <td>
+                                8
+                            </td>
+                            <td>
+                                9
+                            </td>
+                            <td>
+                                10
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                daily working Hours
+                            </td>
+                            <td>
+                                8.00
+                            </td>
+                            <td>
+                                8.00
+                            </td>
+                            <td>
+                                8.00
+                            </td>
+                            <td>
+                                8.00
+                            </td>
+                            <td>
+                                8.00
+                            </td>
+                        </tr>
+                        <tr>
+                         
+                                    <td width="20%">Project Name</td>
+                                    <td width="12%">Contract Name</td>
+                        </tr>
+                        <tr>      
+                              
+                              
+                                        <td>32333332</td>
+                                        <td>32333332</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                        </tr>
+                                  
+                        
+                       
+                    </tbody>
+                </table>
+            </td>
+            <td>
+
+               
+            </td>
+            
+          
+            </tr>
+          </tbody>
+    </table>
+`);
+    var dd = {content:val};
+    var docDefinition = {
+  content: [
+    html
+  ]
+};
+
+var pdfDocGenerator = pdfMake.createPdf(docDefinition);
+pdfDocGenerator.getBuffer(function(buffer) {
+  fs.writeFileSync('example.pdf', buffer);
+});
+  </script>
+</body>
+</html>
